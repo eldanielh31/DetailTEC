@@ -1,0 +1,92 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+            <!-- Card stats -->
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">List employees</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Identification</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users">
+                                <td>
+                                    {{user.cedula}}
+                                </td>
+                                <td>
+                                    {{user.nombre}} {{user.apellido1}}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-info" (click)="handleEdit(user.cedula)"> Editar
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" (click)="handleDeleteEmploye(user.trabajador_id)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">List clients</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Identification</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of clients">
+                                <td>
+                                    {{user.cedula}}
+                                </td>
+                                <td>
+                                    {{user.cliente_nombre}}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-info" (click)="handleEditClient(user.cedula)">
+                                        Editar
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" (click)="handleDeleteClient(user.cedula)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
