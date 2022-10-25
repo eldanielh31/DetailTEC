@@ -103,7 +103,7 @@ export class AppointmentsComponent implements OnInit {
     if (this.selectedService) {
       this.tempEvent['id'] = this.identificationClient,
         this.tempEvent['title'] = this.identificationClient,
-        this.tempEvent['trabajador_id'] = this.user.trabajador_id,
+        this.tempEvent['trabajador_id'] = 1,
         this.tempEvent['suc_id'] = this.selectedStore,
         this.tempEvent['cedula'] = this.identificationClient,
         this.tempEvent['lavado_id'] = this.selectedService
