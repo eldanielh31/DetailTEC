@@ -1,0 +1,37 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-primary opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-10">
+          <h1 class="display-2 text-white">Create a new appointment</h1>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            </div>
+            <select  class="custom-select" id="inputGroupSelect01">
+                <option [ngValue]="null" disabled>Select store</option>
+                <option >...
+                </option>
+            </select>
+            <select  class="custom-select" id="inputGroupSelect01">
+                <option [ngValue]="null" disabled>Select service</option>
+                <option>
+                    ...</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Client Identification:</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <button type="button" class="btn btn-dark" (click)="handleSave()">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
