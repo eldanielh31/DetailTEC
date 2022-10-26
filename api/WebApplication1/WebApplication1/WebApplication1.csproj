@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.16" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\alvasque\OneDrive - Intel Corporation\Desktop\Ashley\Pruebas\repo\api\WebApplication1\WebApplication1\Models\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\alvasque\OneDrive - Intel Corporation\Desktop\Ashley\Pruebas\repo\api\WebApplication1\WebApplication1\Models\.editorconfig" />
+  </ItemGroup>
+
+
+</Project>
