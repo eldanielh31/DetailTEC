@@ -7,6 +7,7 @@ import { BillsComponent } from '../../pages/bills/bills.component';
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
 import { EventComponent } from '../../pages/event/event.component';
+import { HomeComponent } from '../../pages/home/home.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -15,6 +16,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'bills',          component: BillsComponent },
     { path: 'login',          component: LoginComponent },
     { path: 'register',       component: RegisterComponent },
-    { path: 'event',          component: EventComponent }
+    { path: 'event',          component: EventComponent },
+    { path: 'home',          component: HomeComponent }
     
 ];

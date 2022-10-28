@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
-import { ActivatedRoute, Router } from '@angular/router';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import { BackendService } from 'src/app/backend.service';
 import { StorageService } from 'src/app/storage.service';
 import { InvoiceService } from 'src/app/invoice.service';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 declare let $: any;
 
@@ -36,7 +38,7 @@ function formatDate(date) {
   styleUrls: ['./appointments.component.scss']
 })
 export class AppointmentsComponent implements OnInit {
-
+  // Variables necesarias
   services_lavacar: []
   sucursales: []
   appoinments: []
@@ -55,11 +57,12 @@ export class AppointmentsComponent implements OnInit {
 
   user: any;
 
+  // Constructor de la clase
   constructor(private invoice: InvoiceService, private localSotage: StorageService, private backend: BackendService) {
 
     this.user = JSON.parse(this.localSotage.getData('user'));
 
-        //Asignar variable local Servicios lavado
+    //Asignar variable local Servicios lavado
     this.backend.getServices().subscribe(
       response => {
         this.localSotage.saveData('lavados', JSON.stringify(response))
@@ -67,6 +70,7 @@ export class AppointmentsComponent implements OnInit {
     )
     this.services_lavacar = JSON.parse(this.localSotage.getData('lavados'))
 
+    //Asignar variable local Sucursales
     this.backend.getStores().subscribe(
       response => {
         this.localSotage.saveData('stores', JSON.stringify(response))
@@ -74,7 +78,7 @@ export class AppointmentsComponent implements OnInit {
     )
     this.sucursales = JSON.parse(this.localSotage.getData('stores'))
 
-      //Asignar variable local citas
+    //Asignar variable local citas
     this.backend.getAppointments().subscribe(
       response => {
         this.localSotage.saveData('appoinments', JSON.stringify(response))
@@ -99,6 +103,7 @@ export class AppointmentsComponent implements OnInit {
 
   }
 
+  //Funcion para guardar las citas en el calendario y la base de datos
   handleSave() {
     if (this.selectedService) {
       this.tempEvent['id'] = this.identificationClient,
@@ -109,18 +114,17 @@ export class AppointmentsComponent implements OnInit {
         this.tempEvent['lavado_id'] = this.selectedService
       this.Events.push(this.tempEvent);
 
-    this.backend.postAppoiment(this.tempEvent).subscribe(res=>console.log('Agragado correctamente'))
+      this.backend.postAppoiment(this.tempEvent).subscribe(res=>console.log('Agragado correctamente'))
 
       $("#myModal").modal("hide");
     } else {
       alert('Debe seleccionar un servicio')
     }
   }
-
+  //Funcion para crear facturas
   handleFacturation() {
-    
-    let clients = JSON.parse(this.localSotage.getData('clients'));
-    let client = clients.find(e => Number(e['cedula']) === Number(this.tempEvent['cedula']))
+    this.user = JSON.parse(this.localSotage.getData('user'));
+
     let store = this.sucursales.find(e => Number(e['suc_id']) === Number(this.tempEvent['suc_id']))
     let wash = this.services_lavacar.find(e => Number(e['lavado_id']) === Number(this.tempEvent['lavado_id']))
 
@@ -130,20 +134,21 @@ export class AppointmentsComponent implements OnInit {
       { name: 'Free Snacks', price: 0, qty: 5 },
       { name: 'Snacks', price : 500, qty: Number(this.snacks)}
     ]
-    this.invoice.invoice.customerName = client?.cliente_nombre
-    this.invoice.invoice.contactNo = client?.cedula
-    this.invoice.invoice.email = client?.email
+    this.invoice.invoice.customerName = this.user.cliente_nombre
+    this.invoice.invoice.contactNo = this.user.cedula
+    this.invoice.invoice.email = this.user.email
     this.invoice.invoice.address = store['provincia']
     
     this.invoice.generatePDF()
   }
 
+  //Funcion para a gregar citas
   eventClick(res: any) {
     this.tempEvent = this.Events.find(e => Number(e.id) === Number(res.event.id))
     $("#myModal2").modal("show");
     $(".modal-title").text("Facturation");
   }
-
+//Funcion para a agregar citas
   onDateClick(res: any) {
     if (!res.allDay) {
 

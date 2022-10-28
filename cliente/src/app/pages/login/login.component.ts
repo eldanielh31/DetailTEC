@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
         
         this.localStorage.saveData('user', JSON.stringify(data[0]))
-        this.router.navigate(['/calendar'])
+        this.router.navigate(['/home'])
         return
       }, (error => {
         if (error.status === 404) {

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -19,6 +20,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { EventComponent } from './pages/event/event.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -35,6 +37,7 @@ FullCalendarModule.registerPlugins([
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FullCalendarModule
   ],
   declarations: [
@@ -44,7 +47,8 @@ FullCalendarModule.registerPlugins([
     PointsComponent,
     AppointmentsComponent,
     BillsComponent,
-    EventComponent
+    EventComponent,
+    HomeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
