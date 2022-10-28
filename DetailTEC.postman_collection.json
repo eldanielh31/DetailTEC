@@ -1,0 +1,1103 @@
+{
+	"info": {
+		"_postman_id": "446e5e3b-e9d2-4ba5-97a7-2394616f5ccc",
+		"name": "DetailTEC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23743521"
+	},
+	"item": [
+		{
+			"name": "INFO CLIENTE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVO CLIENTE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"cliente_nombre\": \"Ashley Vasquez\",\r\n        \"cedula\": \"5433891\",\r\n        \"fecha_nac\": \"1999-12-03T00:00:00\",\r\n        \"direccion\": \"heredia                                                                         \",\r\n        \"telefono1\": 8217283,\r\n        \"telefono2\": 8272632,\r\n        \"email\": \"avasq@gmail.com\",\r\n        \"usuario\": \"ashley2322\",\r\n        \"psw_cliente\": \"wjuo123 \",\r\n        \"puntos\": 30\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR CLIENTE",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"cliente_nombre\": \"Curran R. Schwartz            \",\r\n        \"cedula\": \"16991202 0097                 \",\r\n        \"fecha_nac\": \"07/09/20                      \",\r\n        \"direccion\": \"Null                                                                            \",\r\n        \"telefono1\": \"8611-4483 \",\r\n        \"telefono2\": 19782577,\r\n        \"email\": \"Phoebe_Vass4703@elnee.tech    \",\r\n        \"usuario\": \"Phoebe_Vass4703@elnee.tech              \",\r\n        \"psw_cliente\": null,\r\n        \"puntos\": 24\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINAR CLIENTE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/clientes/5433891",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"clientes",
+						"5433891"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY CEDULA CLIENTES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/clientes/16991202 0097 ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"clientes",
+						"16991202 0097 "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY EMAIL CLIENTE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/clientes/email/Phoebe_Vass4703@elnee.tech",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"clientes",
+						"email",
+						"Phoebe_Vass4703@elnee.tech"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO TRABAJADOR",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/trabajadores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"trabajadores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVO TRABAJADOR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"cedula\": 23424,\r\n        \"nombre\": \"pRUEBA2\",\r\n        \"apellido1\": \"V\",\r\n        \"apellido2\": \"C\",\r\n        \"ingreso\": \"2019-12-05T00:00:00\",\r\n        \"nacimiento\": \"1995-12-05\",\r\n        \"password_trab\": \"lkejcfe\",\r\n        \"rol\": \"A\",\r\n        \"pago\": \"Semanal\",\r\n        \"email\": \"email\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/trabajadores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"trabajadores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZA TRABAJADOR",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"trabajador_id\": 1,\r\n        \"cedula\": 1233493,\r\n        \"nombre\": \"Ashley1\",\r\n        \"apellido1\": \"V\",\r\n        \"apellido2\": \"C\",\r\n        \"ingreso\": \"2019-12-05T00:00:00\",\r\n        \"nacimiento\": \"1995-12-05T00:00:00\",\r\n        \"edad\": 27,\r\n        \"password_trab\": \"lkejcfe\",\r\n        \"rol\": \"A\",\r\n        \"pago\": \"Semanal\",\r\n        \"email\": \"emailPRUEBA\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/trabajadores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"trabajadores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINA TRABAJADOR",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/clientes/0000223",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"clientes",
+						"0000223"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID TRABAJADOR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/trabajadores/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"trabajadores",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY EMAIL TRABAJADOR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/trabajadores/email/email123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"trabajadores",
+						"email",
+						"email123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO SUCURSALES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/sucursales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"sucursales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVA SUCURSAL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"suc_nombre\": \"Cartago2\",\r\n        \"provincia\": \"Cartago\",\r\n        \"canton\": \"Central\",\r\n        \"distrito\": \"San Rafael\",\r\n        \"telefono\": 923827,\r\n        \"apertura\": \"1995-12-05\",\r\n        \"gerente_id\": 38291289,\r\n        \"ingreso_gerente\": \"1995-12-05\"\r\n       \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/sucursales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"sucursales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR SUCURSAL",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"suc_id\": 1,\r\n        \"suc_nombre\": \"CartagoUPDATED\",\r\n        \"provincia\": \"Cartago\",\r\n        \"canton\": \"Central\",\r\n        \"distrito\": \"molino\",\r\n        \"telefono\": 87392937,\r\n        \"apertura\": \"1995-12-05\",\r\n        \"gerente_id\": 2716289,\r\n        \"ingreso_gerente\": \"1995-12-05\"\r\n       \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/sucursales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"sucursales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINAR SUCURSAL",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/sucursales/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"sucursales",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID SUCURSAL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/sucursales/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"sucursales",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO PROVEEDORES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/proveedores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"proveedores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVO PROVEEDOR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"proveedor_nombre\": \"Alejandra              \",\r\n        \"proveedor_apellido1\": \"Mendez               \",\r\n        \"proveedor_apellido2\": \"Rojas               \",\r\n        \"ced_juridica\": 38273625,\r\n        \"direccion\": \"San Jose, Av 2                          \",\r\n        \"email\": \"amendez@gmail.com\",\r\n        \"contacto_nombre\": \"Alejandra Mendez        \",\r\n        \"contacto_numero\": 81029384,\r\n        \"suc_id\": 1}\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/proveedores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"proveedores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR PROVEEDOR",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"proveedor_nombre\": \"AndreaUPDATED              \",\r\n        \"proveedor_id\": 1,\r\n        \"proveedor_apellido1\": \"Salas               \",\r\n        \"proveedor_apellido2\": \"Rojas               \",\r\n        \"ced_juridica\": 36271836,\r\n        \"direccion\": \"San Jose, Av 2                          \",\r\n        \"email\": \"quiminet12@gmail.com\",\r\n        \"contacto_nombre\": \"Andrea Salas        \",\r\n        \"contacto_numero\": 87694532,\r\n        \"suc_id\": 1}\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/proveedores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"proveedores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINAR PROVEEDOR",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/proveedores/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"proveedores",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID PROVEEDOR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/proveedores/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"proveedores",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO PRODUCTOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVO PRODUCTO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nombre\": \"CleanMax   \",\r\n        \"marca\": \"Meguiars  \",\r\n        \"costo\": 8900,\r\n        \"proveedor_id\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR PRODUCTO",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"prod_id\": 1, \r\n        \"nombre\": \"CleanerMax   \",\r\n        \"marca\": \"Meguiars  \",\r\n        \"costo\": 8900,\r\n        \"proveedor_id\": 1,\r\n        \"suc_id\": 1,\r\n        \"stock\": 2\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO LAVADOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/lavados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"lavados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVO LAVADO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n        \"lavado_nombre\": \"Lavado Encerado\",\r\n        \"costo\": 7000,\r\n        \"precio\": 15000,\r\n        \"duracion\": \"1 horas\" ,\r\n        \"puntos_otorga\":  15 ,\r\n        \"puntos_redimir\": 90 \r\n        \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/lavados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"lavados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZA LAVADO",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"lavado_id\": 2,\r\n        \"lavado_nombre\": \"Lavado Encerado\",\r\n        \"costo\": 7000,\r\n        \"precio\": 17000,\r\n        \"duracion\": \"1 horas\" ,\r\n        \"puntos_otorga\":  15 ,\r\n        \"puntos_redimir\": 90 \r\n        \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/lavados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"lavados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINA LAVADO",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/lavados/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"lavados",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO CITAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/citas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"citas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVA CITA",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"date\": \"2022-12-05T18:00:00\",\r\n        \"cedula\": \"16991202 0097\",\r\n        \"placa\": 43564,\r\n        \"suc_id\": 1,\r\n        \"lavado_id\": 1,\r\n        \"trabajador_id\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/citas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"citas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR CITA",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"cita_id\": 1,\r\n        \"date\": \"2022-12-05T18:00:00\",\r\n        \"cedula\": \"16991202 0097\",\r\n        \"placa\": 43564,\r\n        \"suc_id\": 1,\r\n        \"lavado_id\": 2,\r\n        \"trabajador_id\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/citas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"citas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINAR CITA",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/citas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"citas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID CITA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/citas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"citas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO FACTURAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/facturas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"facturas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVA FACTURA",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"cita_id\": 4,\r\n        \"snacks_consumidos\": 1,\r\n        \"bebidas_consumidas\": 1,\r\n        \"precio_servicio\": 20000,\r\n        \"monto\": 20000 \r\n        \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/facturas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"facturas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR FACTURA",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"fact_id\": 2,\r\n        \"cita_id\": 2,\r\n        \"snacks_consumidos\": 2,\r\n        \"bebidas_consumidas\": 1,\r\n        \"precio_servicio\": 20000,\r\n        \"monto\": 20000 \r\n        \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/facturas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"facturas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINAR FACTURA",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/facturas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"facturas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID FACTURAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/facturas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"facturas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO CARRO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/carro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"carro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVO CARRO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"placa\": 43564,\r\n        \"cedula\": \"16991202 0097\",  \r\n        \"color\" : \"blanco\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/carro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"carro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINAR CARRO",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/carro/43564",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"carro",
+						"43564"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "INFO LAVADOS_PRODUCTOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/lavados_productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"lavados_productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NUEVO LAVADO_PRODUCTO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"lavado_id\": 1,\r\n        \"producto\": \"shampoo\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49146/api/lavados_productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"lavados_productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINAR LAVADO_PRODUCTO",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:49146/api/lavados_productos/cera",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49146",
+					"path": [
+						"api",
+						"lavados_productos",
+						"cera"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
