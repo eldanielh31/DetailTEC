@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,6 @@ namespace WebApplication1.Controllers
             _configuration = configuration;
             _env = env;
         }
-
         /**
          * Get(): Aplica el SELECT para obtener la información de los proveedores que se 
          * encuentran en la base de datos.
@@ -34,8 +33,8 @@ namespace WebApplication1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                            select proveedor_nombre,proveedor_id ,ced_juridica, direccion, email, 
-                            contacto_nombre, contacto_numero            
+                            select proveedor_nombre,proveedor_id ,proveedor_apellido1, proveedor_apellido2,ced_juridica, direccion, email, 
+                            contacto_nombre, contacto_numero, suc_id              
                             from
                             dbo.Proveedores
                             ";
@@ -66,10 +65,10 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Proveedores emp)
         {
             string query = @"
-                           insert into dbo.Proveedores (proveedor_nombre,ced_juridica, direccion, email, 
-                            contacto_nombre, contacto_numero) 
-                           values (@proveedor_nombre,@ced_juridica, @direccion, @email, 
-                            @contacto_nombre, @contacto_numero)             
+                           insert into dbo.Proveedores (proveedor_nombre,proveedor_apellido1, proveedor_apellido2,ced_juridica, direccion, email, 
+                            contacto_nombre, contacto_numero, suc_id) 
+                           values (@proveedor_nombre, @proveedor_apellido1, @proveedor_apellido2,@ced_juridica, @direccion, @email, 
+                            @contacto_nombre, @contacto_numero, @suc_id)             
                      
                             ";
 
@@ -82,12 +81,14 @@ namespace WebApplication1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@proveedor_nombre", emp.proveedor_nombre);
+                    myCommand.Parameters.AddWithValue("@proveedor_apellido1", emp.proveedor_apellido1);
+                    myCommand.Parameters.AddWithValue("@proveedor_apellido2", emp.proveedor_apellido2);
                     myCommand.Parameters.AddWithValue("@ced_juridica", emp.ced_juridica);
                     myCommand.Parameters.AddWithValue("@direccion", emp.direccion);
                     myCommand.Parameters.AddWithValue("@email", emp.email);
                     myCommand.Parameters.AddWithValue("@contacto_nombre", emp.contacto_nombre);
                     myCommand.Parameters.AddWithValue("@contacto_numero", emp.contacto_numero);
-        
+                    myCommand.Parameters.AddWithValue("@suc_id", emp.suc_id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -108,15 +109,15 @@ namespace WebApplication1.Controllers
             string query = @"
                            update dbo.Proveedores
                            set proveedor_nombre=@proveedor_nombre,
+                            proveedor_apellido1=@proveedor_apellido1,
+                            proveedor_apellido2=@proveedor_apellido2,
                             ced_juridica=@ced_juridica,
                             direccion=@direccion,
                             email = @email,
                             contacto_nombre = @contacto_nombre,
-                            contacto_numero = @contacto_numero
-            
+                            contacto_numero = @contacto_numero,
+                            suc_id = @suc_id
                             where proveedor_id= @proveedor_id
-
-
                             ";
 
             DataTable table = new DataTable();
@@ -129,12 +130,14 @@ namespace WebApplication1.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@proveedor_nombre", emp.proveedor_nombre);
                     myCommand.Parameters.AddWithValue("@proveedor_id", emp.proveedor_id);
+                    myCommand.Parameters.AddWithValue("@proveedor_apellido1", emp.proveedor_apellido1);
+                    myCommand.Parameters.AddWithValue("@proveedor_apellido2", emp.proveedor_apellido2);
                     myCommand.Parameters.AddWithValue("@ced_juridica", emp.ced_juridica);
                     myCommand.Parameters.AddWithValue("@direccion", emp.direccion);
                     myCommand.Parameters.AddWithValue("@email", emp.email);
                     myCommand.Parameters.AddWithValue("@contacto_nombre", emp.contacto_nombre);
                     myCommand.Parameters.AddWithValue("@contacto_numero", emp.contacto_numero);
-   
+                    myCommand.Parameters.AddWithValue("@suc_id", emp.suc_id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -146,9 +149,9 @@ namespace WebApplication1.Controllers
         }
 
         /**
-        * Delete(): Aplica el DELETE para eliminar proveedores de la base de datos, se debe ingresar
-        * el id del proveedor.
-        */
+       * Delete(): Aplica el DELETE para eliminar proveedores de la base de datos, se debe ingresar
+       * el id del cliente.
+       */
 
         [HttpDelete("{proveedor_id}")]
         public JsonResult Delete(int proveedor_id)
@@ -179,16 +182,16 @@ namespace WebApplication1.Controllers
         }
 
         /**
-         * GetId(): Aplica el SELECT para obtener la información de los proveedores que se 
-         * encuentran en la base de datos insertando el id de de los proveedores.
+         * Getcedula(): Aplica el SELECT para obtener la información de los proveedores que se 
+         * encuentran en la base de datos insertando el id de de los clientes.
          */
 
         [HttpGet("{proveedor_id}")]
-        public JsonResult GetId(int proveedor_id)
+        public JsonResult Getcedula(int proveedor_id)
         {
             string query = @"
-                            select proveedor_nombre,proveedor_id ,ced_juridica, direccion, email, 
-                            contacto_nombre, contacto_numero         
+                            select proveedor_nombre,proveedor_id ,proveedor_apellido1, proveedor_apellido2,ced_juridica, direccion, email, 
+                            contacto_nombre, contacto_numero, suc_id          
                             from
                             dbo.Proveedores
                             where proveedor_id=@proveedor_id
