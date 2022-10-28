@@ -25,7 +25,7 @@ namespace WebApplication1.Models
 
         public string contacto_numero { get; set; }
 
-
+        public string suc_id { get; set; }
 
         public void setProveedor_id(int newProveedor_id)
         {
@@ -66,7 +66,10 @@ namespace WebApplication1.Models
         {
             this.contacto_numero = newContacto_numero;
         }
-       
+        public void setSuc_id(string newSuc_id)
+        {
+            this.suc_id = newSuc_id;
+        }
 
     }
 }
