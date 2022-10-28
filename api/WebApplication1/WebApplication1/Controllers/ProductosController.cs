@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -30,11 +30,12 @@ namespace WebApplication1.Controllers
          * encuentran en la base de datos.
          */
 
+
         [HttpGet]
         public JsonResult Get()
         {
             string query = @"
-                            select prod_id, nombre ,marca,costo,proveedor_id, suc_id, stock         
+                            select nombre ,marca,costo,proveedor_id          
                             from
                             dbo.Productos
                             ";
@@ -58,15 +59,15 @@ namespace WebApplication1.Controllers
         }
 
         /**
-         * Post(): Aplica el INSERT para agregar un nuevo producto a la base de datos.
-         */
+        * Post(): Aplica el INSERT para agregar un nuevo producto a la base de datos.
+        */
 
         [HttpPost]
         public JsonResult Post(Productos emp)
         {
             string query = @"
-                           insert into dbo.Productos (nombre ,marca,costo,proveedor_id, suc_id, stock ) 
-                           values (@nombre ,@marca,@costo,@proveedor_id, @suc_id, @stock )             
+                           insert into dbo.Productos (nombre ,marca,costo,proveedor_id) 
+                           values (@nombre ,@marca, @costo,@proveedor_id)             
                      
                             ";
 
@@ -78,13 +79,10 @@ namespace WebApplication1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
- 
                     myCommand.Parameters.AddWithValue("@nombre", emp.nombre);
                     myCommand.Parameters.AddWithValue("@marca", emp.marca);
                     myCommand.Parameters.AddWithValue("@costo", emp.costo);
                     myCommand.Parameters.AddWithValue("@proveedor_id", emp.proveedor_id);
-                    myCommand.Parameters.AddWithValue("@suc_id", emp.suc_id);
-                    myCommand.Parameters.AddWithValue("@stock", emp.stock);
 
 
                     myReader = myCommand.ExecuteReader();
@@ -107,14 +105,11 @@ namespace WebApplication1.Controllers
             string query = @"
                            update dbo.Productos
                            set 
-                           nombre= @nombre,
                            marca=@marca,
                            costo=@costo,
-                           proveedor_id=@proveedor_id,
-                           suc_id=@suc_id,
-                           stock=@stock
+                           proveedor_id=@proveedor_id
                                              
-                           where prod_id= @prod_id
+                           where nombre= @nombre
                             ";
 
             DataTable table = new DataTable();
@@ -125,13 +120,10 @@ namespace WebApplication1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@prod_id", emp.prod_id);
                     myCommand.Parameters.AddWithValue("@nombre", emp.nombre);
                     myCommand.Parameters.AddWithValue("@marca", emp.marca);
                     myCommand.Parameters.AddWithValue("@costo", emp.costo);
                     myCommand.Parameters.AddWithValue("@proveedor_id", emp.proveedor_id);
-                    myCommand.Parameters.AddWithValue("@suc_id", emp.suc_id);
-                    myCommand.Parameters.AddWithValue("@stock", emp.stock);
 
 
                     myReader = myCommand.ExecuteReader();
@@ -144,6 +136,63 @@ namespace WebApplication1.Controllers
             return new JsonResult("Updated Successfully");
         }
 
+        [HttpDelete("{nombre}")]
+        public JsonResult Delete(string nombre)
+        {
+            string query = @"
+                           delete from dbo.Productos
+                            where nombre=@nombre
+                            ";
+
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("TrabajadoresAppCon");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myCommand.Parameters.AddWithValue("@nombre", nombre);
+
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult("Deleted Successfully");
+        }
+
+        [HttpGet("{nombre}")]
+        public JsonResult Getcedula(string nombre)
+        {
+            string query = @"
+                            select nombre ,marca,costo,proveedor_id       
+                            from
+                            dbo.Productos
+                            where nombre=@nombre
+                            ";
+
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("TrabajadoresAppCon");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myCommand.Parameters.AddWithValue("@nombre", nombre);
+
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult(table);
+        }
 
 
     }
